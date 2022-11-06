@@ -25,8 +25,10 @@ connection.once('open', () => {
 
 //Fuel Tips
 const fuelTips = require('./routes/fuelSaverRoutes/fuelSaver-route')
+const fuelComments = require('./routes/fuelSaverRoutes/fuelComment-route')
 
 app.use('/FuelTips', fuelTips);
+app.use('/FuelComment', fuelComments);
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
