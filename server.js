@@ -25,11 +25,13 @@ connection.once('open', () => {
 
 //Fuel Tips
 const fuelTips = require('./routes/fuelSaverRoutes/fuelSaver-route')
+const fuelComments = require('./routes/fuelSaverRoutes/fuelComment-route')
 
 //Water Tips
 const waterTips = require('./routes/waterSaverRoutes/waterSaver-routes')
 
 app.use('/FuelTips', fuelTips);
+app.use('/FuelComment', fuelComments);
 
 app.use('/WaterTips', waterTips);
 
