@@ -25,6 +25,10 @@ connection.once('open', () => {
 
 //Fuel Saver
 const fuelTips = require('./routes/fuelSaverRoutes/fuelSaver-route')
+const fuelComments = require('./routes/fuelSaverRoutes/fuelComment-route')
+
+//Water Tips
+const waterTips = require('./routes/waterSaverRoutes/waterSaver-routes')
 
 //Food Saver
 const foodRouter = require('./routes/foodSaverRoutes/foodSaver-route')
@@ -34,6 +38,9 @@ app.use('/FoodSaver', foodRouter);
 
 // Fuel Saver
 app.use('/FuelTips', fuelTips);
+app.use('/FuelComment', fuelComments);
+
+app.use('/WaterTips', waterTips);
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
