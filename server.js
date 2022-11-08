@@ -23,9 +23,16 @@ connection.once('open', () => {
     console.log("MongoDB database connection established successfully");
 })
 
-//Fuel Tips
+//Fuel Saver
 const fuelTips = require('./routes/fuelSaverRoutes/fuelSaver-route')
 
+//Food Saver
+const foodRouter = require('./routes/foodSaverRoutes/foodSaver-route')
+
+// Food Saver
+app.use('/FoodSaver', foodRouter);
+
+// Fuel Saver
 app.use('/FuelTips', fuelTips);
 
 app.listen(port, () => {
