@@ -23,13 +23,20 @@ connection.once('open', () => {
     console.log("MongoDB database connection established successfully");
 })
 
-//Fuel Tips
+//Fuel Saver
 const fuelTips = require('./routes/fuelSaverRoutes/fuelSaver-route')
 const fuelComments = require('./routes/fuelSaverRoutes/fuelComment-route')
 
 //Water Tips
 const waterTips = require('./routes/waterSaverRoutes/waterSaver-routes')
 
+//Food Saver
+const foodRouter = require('./routes/foodSaverRoutes/foodSaver-route')
+
+// Food Saver
+app.use('/FoodSaver', foodRouter);
+
+// Fuel Saver
 app.use('/FuelTips', fuelTips);
 app.use('/FuelComment', fuelComments);
 
