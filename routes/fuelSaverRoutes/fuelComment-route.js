@@ -7,6 +7,12 @@ router.route('/').get((req, res) => {
         .then(items => res.json(items))
         .catch(err => res.status(400).json('Error: ' + err));
 });
+//get by tip id
+router.route('/tipcomment/:id').get((req, res) => {
+    FuelComments.find({ tipId: req.params.id })
+        .then(items => res.json(items))
+        .catch(err => res.status(400).json('Error: ' + err));
+})
 
 //insert
 router.route('/add').post((req, res) => {
