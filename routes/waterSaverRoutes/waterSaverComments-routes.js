@@ -28,9 +28,12 @@ router.route('/add').post((req, res) => {
 
 //get by ID
 router.route('/:id').get((req, res) => {
-    WaterComments.findById(req.params.id)
-        .then(item => res.json(item))
-        .catch(err => res.status(400).json('Error: ' + err));
+    // WaterComments.findById(req.params.id)
+    //     .then(item => res.json(item))
+    //     .catch(err => res.status(400).json('Error: ' + err));
+    WaterComments.find({ ideaId: req.params.id})
+    .then(comment => res.json(comment))
+    .catch(err => res.status(400).json('Error: ' + err));
 });
 
 //delete
@@ -41,21 +44,25 @@ router.route('/:id').delete((req, res) => {
 });
 
 //update details
-router.route('/updateWaterTip/:id').post((req, res) => {
+router.route('/updateWaterComment/:id').post((req, res) => {
     WaterComments.findById(req.params.id)
         .then(water => {
 
-            water.userId = req.body.userId;
-            water.image = req.body.image;
-            water.tipTitle = req.body.tipTitle;
-            water.tipDescription = req.body.tipDescription;
-            water.tipCategory = req.body.tipCategory;
+            water.comment = req.body.comment;
 
             water.save()
                 .then(() => res.json('WaterComments-Tip updated!'))
                 .catch(err => res.status(400).json('Error: ' + err));
         })
         .catch(err => res.status(400).json('Error: ' + err));
+});
+
+//get comments by idea
+router.route('/getcomment/:id').post((req, res) => {
+    console.log('a', req.params.id);
+    // WaterComments.find({ ideaId: req.params.id})
+    // .then(comment => res.json(comment))
+    // .catch(err => res.status(400).json('Error: ' + err));
 });
 
 module.exports = router;
