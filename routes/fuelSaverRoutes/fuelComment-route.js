@@ -51,8 +51,6 @@ router.route('/updateFuelTip/:id').post((req, res) => {
     FuelComments.findById(req.params.id)
         .then(fuel => {
 
-            fuel.tipId = req.body.tipId;
-            fuel.userId = req.body.userId;
             fuel.comments = req.body.comments;
 
             fuel.save()
