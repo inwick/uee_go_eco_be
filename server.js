@@ -29,6 +29,7 @@ const fuelComments = require('./routes/fuelSaverRoutes/fuelComment-route')
 
 //Water Tips
 const waterTips = require('./routes/waterSaverRoutes/waterSaver-routes')
+const waterComments = require('./routes/waterSaverRoutes/waterSaverComments-routes')
 
 //Food Saver
 const foodRouter = require('./routes/foodSaverRoutes/foodSaver-route')
@@ -42,7 +43,9 @@ app.use('/FoodSaver-comment', foodCommentRoute);
 app.use('/FuelTips', fuelTips);
 app.use('/FuelComment', fuelComments);
 
+//Water Saver
 app.use('/WaterTips', waterTips);
+app.use('/WaterComments', waterComments);
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
