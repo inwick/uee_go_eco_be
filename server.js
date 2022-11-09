@@ -32,9 +32,11 @@ const waterTips = require('./routes/waterSaverRoutes/waterSaver-routes')
 
 //Food Saver
 const foodRouter = require('./routes/foodSaverRoutes/foodSaver-route')
+const foodCommentRoute = require('./routes/foodSaverRoutes/foodComment-route')
 
 // Food Saver
 app.use('/FoodSaver', foodRouter);
+app.use('/FoodSaver-comment', foodCommentRoute);
 
 // Fuel Saver
 app.use('/FuelTips', fuelTips);
