@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const monthlyBillScheme = new Schema(
   {
     month: { type: String, required: true },
-    units: { type: String },
+    units: { type: String, required: true },
   },
   {
     timestamps: true,
