@@ -2,12 +2,15 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const monthlyBillScheme = new Schema({
+const monthlyBillScheme = new Schema(
+  {
     month: { type: String, required: true },
-    units: { type: String, required: true },
-}, {
+    units: { type: String },
+  },
+  {
     timestamps: true,
-});
+  }
+);
 
 const ElectricitySaver = mongoose.model('ElectricitySaver', monthlyBillScheme);
 
